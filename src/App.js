@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import './App.scss';
-import CheckBox from './components/CheckBox';
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import TodoHead from './components/TodoHead';
+import TodoList from './components/TodoList';
+import TodoTemplate from './components/TodoTemplate';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: #e9ecef;
+  }
+`;
 
 const App = () => {
-  const [check, setCheck] = useState(false);
-  const onChange = (e) => {
-    setCheck(e.target.checked);
-  };
-
   return (
-    <div>
-      <CheckBox onChange={onChange} checked={check}>
-        다음 약관에 모두 동의
-      </CheckBox>
-      <p>
-        <b>check: </b>
-        {check ? 'true' : 'false'}
-      </p>
-    </div>
+    <>
+      <GlobalStyle />
+      <TodoTemplate>
+        <TodoHead />
+        <TodoList />
+      </TodoTemplate>
+    </>
   );
 };
 
