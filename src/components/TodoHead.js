@@ -1,10 +1,13 @@
 import React from 'react';
 import styles from './TodoHead.module.css';
+import { useTodoState } from '../TodoContext';
 import classNames from 'classnames/bind';
 
-const style = classNames.bind(styles)
+const style = classNames.bind(styles);
 
 const TodoHead = () => {
+  const todos = useTodoState();
+  console.log(todos);
   return (
     <div className={style('body')}>
       <h1>2021/08/05</h1>
